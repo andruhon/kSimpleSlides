@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="generator" content="SciTE">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="../js/kSimpleSlides.js"></script>
+    <title></title>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            kSimpleSlides({
+                wrapper:'#gallery-wrapper'
+            });
+
+            /*Можно также использовать как табы см. параметр controls*/
+        });
+    </script>
+    <style>
+        .gallery-wrapper{position: relative;}
+        .item{position: absolute; top: 0px; left: 0px;}
+    </style>
+</head>
+<body>
+
+    <div  id="gallery-wrapper" class="gallery-wrapper">
+        <div class="item" id="slide1">
+            <img src="files/photo1.jpg"/>
+        </div>
+        <div class="item" id="slide2">
+            <img src="files/photo2.jpg"/>
+        </div>
+        <div class="item" id="slide3">
+            <img src="files/photo3.jpg"/>
+        </div>
+        <div class="item" id="slide4">
+            <img src="files/photo4.jpg"/>
+        </div>
+    </div>
+
+</body>
+</html>
