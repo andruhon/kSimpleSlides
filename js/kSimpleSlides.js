@@ -3,18 +3,22 @@
  *
  * Rotating simple slideshow
  *
- * requires jQuery JavaScript Library v1.4.4
+ * requires jQuery JavaScript Library > v1.4.4
  *
- * copyright (c) 2011 Kopolo
- * http://kopolo.ru/
+ * copyright (c) 2011-2012 Kopolo
+ * http://kopolo.ru/en/for_webmasters/
+ * https://github.com/andruhon/kSimpleSlides
+ *
+ * Live demo: http://kopolo.ru/en/for_webmasters/ksimpleslides/demo/
+ *
+ *
  * @author: Andrey Kondratev andr@kopolo.ru
  *
  * Dual licensed under MIT and GPL 2+ licenses
- * http://kopolo/for-developers/ksimpleslides/_license/
  */
 (function(jQuery){
 
-    kSimpleSlidesVersion = '0.8';
+    kSimpleSlidesVersion = '0.8.1';
 
     /*Class*/
     kSimpleSlides = function(user_options) {
@@ -134,8 +138,8 @@
             instance.wrapper.find('.'+options.itemClass).hide();
 
             if (options.controls!=false) {
-                instance.controlsWrapper = instance.wrapper.find(options.controls);
-                instance.initControls(options.controls);
+                instance.controlsWrapper = jQuery(options.controls);
+                instance.initControls(instance.controlsWrapper);
             };
 
             /*show slide if hash passed*/

@@ -8,20 +8,38 @@
     <title></title>
     <script type="text/javascript">
         $(document).ready(function(){
-            kSimpleSlides({
-                wrapper:'#gallery-wrapper'
+            window.kSimpleSlides_instance = kSimpleSlides({
+                wrapper:'#gallery-wrapper',
+                controls: '#controls' //this is optional parameter
             });
-
-            /*Можно также использовать как табы см. параметр controls*/
+            /* you can also use it as tabs, see controls paremeter */
         });
     </script>
     <style>
-        .gallery-wrapper{position: relative;}
-        .item{position: absolute; top: 0px; left: 0px;}
+        body {text-align: center;}
+        .gallery-wrapper{
+            position: relative;
+            margin: 0 auto;
+            width: 1024px; max-width: 100%;
+        }
+        .item{position: absolute; top: 0px; left: 0px; max-width: 100%;}
+        .item img{max-width: 100%;}
     </style>
 </head>
 <body>
 
+    <h5>Controls</h5>
+    <div id="controls">
+        <a href="#slide1">slide 1</a> <a href="#slide2">slide 2</a> <a href="#slide3">slide 3</a> <a href="#slide4">slide 4</a>
+    </div>
+    
+    <!-- Example using kSimpleSlides methods as inline javascript -->
+    <a href="#" onclick="kSimpleSlides_instance.play(); return false;">play</a> 
+    <a href="#" onclick="kSimpleSlides_instance.play(); return false;">stop</a>
+    <a href="#" onclick="kSimpleSlides_instance.play(); return false;">toggle</a>
+    
+
+    <h5>Slides</h5>
     <div  id="gallery-wrapper" class="gallery-wrapper">
         <div class="item" id="slide1">
             <img src="files/photo1.jpg"/>
@@ -36,6 +54,7 @@
             <img src="files/photo4.jpg"/>
         </div>
     </div>
+
 
 </body>
 </html>
