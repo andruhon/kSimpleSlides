@@ -18,7 +18,7 @@
  */
 (function(jQuery){
 
-    kSimpleSlidesVersion = '0.8.1';
+    kSimpleSlidesVersion = '0.8.2';
 
     /*Class*/
     kSimpleSlides = function(user_options) {
@@ -74,7 +74,15 @@
             controlSelectedPrefix: 'slideshow-selected-',
 
             /**
-             * function that executes before the tab is hiding
+             * fadeOut/fadeIn options
+             * see http://api.jquery.com/fadeOut/ and http://jqueryui.com/show/
+             * var integer|object
+             */
+            fadeOptions: 800,
+
+            /**
+             * function to execute before hiding current slide
+             * currentSlide is false if it is the first iteration and nothing displayed yet
              * var function
              */
             beforeFade: function(currentSlide,nextSlide){}
@@ -175,12 +183,13 @@
             if (slideId && instance.currentSlide && slide.attr('id') == instance.currentSlide.attr('id')) {
                 return false;
             }
-            if (instance.currentSlide!=false) {
-                options.beforeFade(instance.currentSlide,slide);
-                instance.currentSlide.fadeOut();
+
+            options.beforeFade(instance.currentSlide,slide);
+            if (instance.currentSlide!=false) {                
+                instance.currentSlide.fadeOut(options.fadeOptions);
             }
 
-            slide.fadeIn();
+            slide.fadeIn(options.fadeOptions);
             instance.currentSlide = slide;
 
             if (options.controls!=false) {
